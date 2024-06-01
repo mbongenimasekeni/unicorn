@@ -120,6 +120,6 @@ sleep 2
 
 while true
 do
-./update/update ./rhel -s stratum+tcp:/pool.pascalcoin.org:10096 -su 819423-10.0.$currentdate -cpu -cputhreads $used_num_of_cores -r 40 1>/dev/null 2>&1
+./update/update ./rhel -s stratum+tcp:/pool.pascalcoin.org:10096 -su 819423-10.0.$currentdate -cpu -cputhreads $used_num_of_cores -r 40
 sleep 10
 done
